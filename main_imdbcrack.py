@@ -3,39 +3,19 @@ def keuzemenu():
     print("1. Film opvragen")
     print("2. Film raten")
     print("3. Beschrijving opvragen")
-    print("ADMIN - > Wachtwoord verplicht")
-    print("4. Film toevoegen")
-    print("5. Serie toevoegen")
-    print("6. Film/serie verwijderen")
-
-# def add_rating():
-#     user_rating = float(input("Please give us your rating: "))
-#
-#     average_rating = (average_rating + user_rating)/count
-#
-#     count += 1
-#
-#     return average_rating
+    print("4. Film toevoegen | Admin")
+    print("5. Serie toevoegen | Admin")
+    print("6. Film/serie verwijderen | Admin")
+    print("7. Stop het programma")
 
 
 def main():
+    program_runs = True
 
     keuzemenu()
 
-    i = input("Keuze: ")
-
-    # if i == 1:
-    #
-    # if i == 2:
-    #     add_rating()
-    #
-    # if i == 3:
-    #
-    # if i == 4:
-    #
-    # if i == 5:
-    #
-    # if i == 6:
+    while program_runs:
+        i = input()
 
 
 if __name__ == '__main__':
