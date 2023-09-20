@@ -8,6 +8,10 @@ def keuzemenu():
     print("6. Film/serie verwijderen | Admin")
     print("7. Stop het programma")
 
+#   read_data
+#   key, genre: vul genre in om te filteren, laat leeg om niet te filteren.
+#   returns: een list van alle dictionaries van films die door de filter zijn gekomen.
+
 def read_data(genre = 0):
     file =  open('IMDB_datafiles/IMDBmovies.txt')
     data = file.read()
@@ -33,16 +37,15 @@ def read_data(genre = 0):
                 movie_dictionaries.append(movie_dictionary)
             elif genre == 0:
                 movie_dictionaries.append(movie_dictionary)
-    print(movie_dictionaries)
+    return(movie_dictionaries)
 
 def main():
-    read_data('sciencefiction')
-    # program_runs = True
+    program_runs = True
 
-    # keuzemenu()
+    keuzemenu()
 
-    # while program_runs:
-    #     i = input()
+    while program_runs:
+        i = input()
 
 
 if __name__ == '__main__':
