@@ -18,8 +18,6 @@ def new_rating():
             return "Invalid rating, try again"
 
 
-
-
 def keuzemenu():
     print("Welkom bij de Internet Movie Database! Kies uit: 1, 2, 3, 4, 5, 6")
     print("1. Film opvragen")
@@ -78,7 +76,6 @@ def main():
         if i == 2:
             rating = new_rating()
             print(rating)
-            #print(f'Thanks for rating the movie! The average rating right now is {rating}')
 
 
 if __name__ == '__main__':
