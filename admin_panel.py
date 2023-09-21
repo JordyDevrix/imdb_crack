@@ -1,6 +1,6 @@
 def admin_login(entered_username):
 
-    file = open("admin_passwords.txt", "r")
+    file = open("IMDB_datafiles/admin_passwords.txt", "r")
     username_lines = file.readlines()
     for line in range(len(username_lines)):
         username = username_lines[line].split("::")[0].replace("\n", "")
