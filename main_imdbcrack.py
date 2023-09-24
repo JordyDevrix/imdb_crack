@@ -1,3 +1,34 @@
+def show_movie():
+    chosen_movie = input("Enter movie: ")
+    file = read_data()
+    flag = False
+    movie_dictionary_keys = []
+    movie_dictionary_values = []
+
+    for movie_dictionary in file:
+        if movie_dictionary['name'].lower() == chosen_movie.lower():
+            for key in movie_dictionary:
+                movie_dictionary_keys.append(key.capitalize())
+
+            for value in movie_dictionary.values():
+                if type(value) == list:
+                    new_value = ""
+                    for i in range(0, len(value)):
+                        new_value += str(value[i]) + " / "
+                    movie_dictionary_values.append(new_value)
+                else:
+                    movie_dictionary_values.append(value)
+
+            for i in range(0, len(movie_dictionary_keys)):
+                print(movie_dictionary_keys[i], ":", movie_dictionary_values[i])
+
+            flag = True
+
+    if not flag:
+        print("Try again")
+        show_movie()
+
+
 def add_rating():
     movie_request = input("Enter movie: ")
     dictionary = read_data()
@@ -92,8 +123,7 @@ def main():
         i = int(input())
 
         if i == 1:
-            read_data()
-            print(read_data())
+            show_movie()
 
         if i == 2:
             add_rating()
