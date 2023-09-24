@@ -1,3 +1,6 @@
+from admin_panel import *
+
+
 def new_rating():
     user_movie = input("Enter movie: ")
     dictionary = read_data()
@@ -19,13 +22,11 @@ def new_rating():
 
 
 def keuzemenu():
-    print("Welkom bij de Internet Movie Database! Kies uit: 1, 2, 3, 4, 5, 6")
+    print("Welkom bij de Internet Movie Database! Kies uit: 1, 2, 3, 4")
     print("1. Film opvragen")
     print("2. Film raten")
-    print("3. Film toevoegen | Admin")
-    print("4. Serie toevoegen | Admin")
-    print("5. Film/serie verwijderen | Admin")
-    print("6. Stop het programma")
+    print("3. Admin login")
+    print("4. Stop het programma")
 
 #   read_data
 #   key, genre: vul genre in om te filteren, laat leeg om niet te filteren.
@@ -70,10 +71,20 @@ def main():
         if i == 1:
             read_data()
             print(read_data())
-
-        if i == 2:
+        elif i == 2:
             rating = new_rating()
             print(rating)
+        elif i == 3:
+            adminlogged = False
+            adminmenu = admin_login(adminlogged)
+            if adminmenu:
+                print("logging succesful")
+                admin_menu()
+        elif i == 4:
+            print("Ending program, Have a nice day!")
+            program_runs = False
+        else:
+            raise KeyError("Input key invalid")
 
 
 if __name__ == '__main__':
