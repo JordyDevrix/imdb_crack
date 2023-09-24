@@ -91,7 +91,7 @@ def delete_movie():
                             #print(movie_deleted)
                             print(f"will not write {movie_name}")
                         else:
-                            file = open("IMDB_datafiles/IMDBmoviestest.txt", "w")
+                            file = open("IMDB_datafiles/IMDBmovies.txt", "w")
                             if movie_deleted and movies == len(movies_lib):
                                 movie_writing_list.append(movies_lib[movies].replace("\n", ""))
                             elif not movie_deleted and int(movies) == int(len(movies_lib)) - 2:
