@@ -4,4 +4,3 @@ rngjrgg::14-03-2012::harrie denks::4305754::die ene;;misschien::disney::confusio
 tdhthfhyhy::29-05-2022::vuile hond::345678::best picture::paramount::confusion;;test::film::0;0::die eene;;en die andere::4
 joker::10-09-2017::hans auto::1009024::beter picture::paraberg::thriller;;sciencereality::film::0;;0::die andere;;en die eene::5
 batman::22::matt::334231::mtv::hbomax::action::action;;movie::null_rating::null_rewards::6
-spiderman::1999::iemand::1290439::mtv::netflix::cartoon::superhero;;movie::null_rating::null_rewards::7

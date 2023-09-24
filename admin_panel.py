@@ -1,4 +1,4 @@
-from admin_functions import add_movie
+from admin_functions import *
 
 
 def admin_login(login):
@@ -25,13 +25,13 @@ def admin_login(login):
 
 
 def admin_menu():
-    print("[1] add a movie.\n[2] option two.\n[3] option three.")
+    print("[1] add a movie.\n[2] delete a movie.\n[3] option three.")
     option = int(input(""))
 
     if option == 1:
         add_movie()
     elif option == 2:
-        print("Not finished yet")
+        delete_movie()
     elif option == 3:
         print("Not finished yet")
     else:

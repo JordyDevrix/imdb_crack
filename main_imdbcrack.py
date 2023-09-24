@@ -1,3 +1,6 @@
+from admin_panel import *
+
+
 def add_rating():
     movie_request = input("Enter movie: ")
     dictionary = read_data()
@@ -16,9 +19,10 @@ def add_rating():
             print(f'Thanks for rating the movie! The average rating right now is {rating}')
             found = True
 
-    if found == False:
+    if not found:
         print("Invalid rating, try again")
         add_rating()
+
 
 def edit_row(id, edit_key, new_data):
     movie_dictionaries = read_data()
@@ -44,6 +48,7 @@ def edit_row(id, edit_key, new_data):
         file.write(row + '\n')
     file.close()
 
+
 def keuzemenu():
     print("Welkom bij de Internet Movie Database! Kies uit: 1, 2, 3, 4")
     print("1. Film opvragen")
@@ -51,12 +56,13 @@ def keuzemenu():
     print("3. Admin login")
     print("4. Stop het programma")
 
+
 #   read_data
 #   key, genre: vul genre in om te filteren, laat leeg om niet te filteren.
 #   returns: een list van alle dictionaries van films die door de filter zijn gekomen.
 
 
-def read_data(genre = 0):
+def read_data(genre=0):
     file = open('IMDB_datafiles/IMDBmovies.txt')
     data = file.read()
     file.close()
@@ -83,6 +89,7 @@ def read_data(genre = 0):
                 movie_dictionaries.append(movie_dictionary)
     return movie_dictionaries
 
+
 def main():
     program_runs = True
 
@@ -90,13 +97,24 @@ def main():
 
     while program_runs:
         i = int(input())
-
+        #
         if i == 1:
             read_data()
             print(read_data())
-
-        if i == 2:
-            add_rating()
+        elif i == 2:
+            rating = add_rating()
+            print(rating)
+        elif i == 3:
+            adminlogged = False
+            adminmenu = admin_login(adminlogged)
+            if adminmenu:
+                print("logging succesful")
+                admin_menu()
+        elif i == 4:
+            print("Ending program, Have a nice day!")
+            program_runs = False
+        else:
+            raise KeyError("Input key invalid")
 
 
 if __name__ == '__main__':
