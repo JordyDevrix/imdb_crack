@@ -1,5 +1,5 @@
 name::release date::producer::sales::nominations::distributors::genre::type::rating::rewards
-Joker::24-04-2022::henk fiets::1009024::best picture::paramount::thriller;;sciencefiction::film::0;;0::die eene;;en die andere
+joker::24-04-2022::henk fiets::1009024::best picture::paramount::thriller;;sciencefiction::film::0;;0::die eene;;en die andere
 rngjrgg::14-03-2012::harrie denks::4305754::die ene;;misschien::disney::confusion;;sciencefiction::serie::0;;0::die eene;;en die andere
 tdhthfhyhy::29-05-2022::vuile hond::345678::best picture::paramount::confusion;;test::film::0;0::die eene;;en die andere
-The Batman::2022::Matt Reeves::500 000::MTV movie awards::HBO max::Action::Superhero;;Movie::8;;27::null_rewards
+thebatman::2022::Matt Reeves::500 000::MTV movie awards::HBO max::Action::Superhero;;Movie::8;;27::null_rewards

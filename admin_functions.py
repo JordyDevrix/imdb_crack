@@ -47,5 +47,48 @@ def add_movie():
         raise KeyError("Invalid key, NO DOCUMENT CHANGES HAVE BEEN MADE")
 
     file.writelines(data)
-
+    file.close()
     # print(f"{title} {rel_date} {prod} {sales} {nomination} {distri} {genre} {content_type}")
+
+
+def delete_movie():
+    movie_writing_dict = {}
+    movie_writing_list = ()
+
+    movie_to_delete_output = input("(Q to cancel) What movie do you want to delete?: ")
+    movie_to_delete = movie_to_delete_output.lower().replace(" ", "")
+
+    if movie_to_delete == "q":
+        print("cancelling deletion, no changes have been made")
+        return 0
+
+    else:
+        file = open("IMDB_datafiles/IMDBmovies.txt", "r")
+        movies_lib = file.readlines()
+
+        for movie in range(len(movies_lib)):
+            movie_name = movies_lib[movie].split("::")[0]
+
+            if movie_name == movie_to_delete:
+                print(f"do you want to delete '{movie_to_delete_output}'? Y/N")
+                delete_answer = input().lower()
+
+                if delete_answer == "y":
+                    print("deleting movie...")
+
+                    for movies in range(len(movies_lib)):
+
+                        if movie_to_delete == movies_lib[movies].split("::")[0]:
+                            print(f"will not write {movie_name}")
+                        else:
+                            #file = open("IMDB_datafiles/IMDBmovies.txt", "w")
+                            print(movies_lib[movies].split("::"))
+
+                elif delete_answer == "n":
+                    print("cancelling deletion, no changes have been made")
+
+                else:
+                    raise KeyError("Key invalid, please restart to continue")
+
+
+delete_movie()
