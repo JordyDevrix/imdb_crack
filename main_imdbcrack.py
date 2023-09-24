@@ -1,22 +1,48 @@
-def new_rating():
-    user_movie = input("Enter movie: ")
+def add_rating():
+    movie_request = input("Enter movie: ")
     dictionary = read_data()
-
+    found = False
     for movie in dictionary:
-        if movie['name'] == user_movie.capitalize():
-            user_rating = float(input("Give your rating: "))
-            info = movie['rating']
-            average_rating = float(info[0])
-            count = int(info[1])
-            count += 1
+        if movie['name'].lower() == movie_request.lower():
+            new_rating = float(input("Give your rating: "))
+            rating_data = movie['rating']
+            full_rating = float(rating_data[0])
+            rating_amount = int(rating_data[1])
+            new_rating_amount = rating_amount + 1
+            new_full_rating = full_rating + new_rating
+            edit_row(movie['id'], 'rating', [new_full_rating, new_rating_amount])
+            rating = new_full_rating / new_rating_amount
 
-            rating = (average_rating + user_rating)/count
+            print(f'Thanks for rating the movie! The average rating right now is {rating}')
+            found = True
 
-            return f'Thanks for rating the movie! The average rating right now is {rating}'
+    if found == False:
+        print("Invalid rating, try again")
+        add_rating()
 
-        else:
-            return "Invalid rating, try again"
-
+def edit_row(id, edit_key, new_data):
+    movie_dictionaries = read_data()
+    file = open('IMDB_datafiles/IMDBmovies.txt', 'w')
+    first = True
+    for movie in movie_dictionaries:
+        if first:
+            keys = []
+            for key in movie.keys():
+                keys.append(key)
+            row = '::'.join(keys)
+            file.write(row + '\n')
+            first = False
+        if movie['id'] == id:
+            movie[edit_key] = new_data
+        values = []
+        for value in movie.values():
+            if type(value) == list:
+                value = ';;'.join(str(value_item) for value_item in value)
+            values.append(value)
+        row = '::'.join(str(value) for value in values)
+        print(row)
+        file.write(row + '\n')
+    file.close()
 
 def keuzemenu():
     print("Welkom bij de Internet Movie Database! Kies uit: 1, 2, 3, 4, 5, 6")
@@ -72,8 +98,7 @@ def main():
             print(read_data())
 
         if i == 2:
-            rating = new_rating()
-            print(rating)
+            add_rating()
 
 
 if __name__ == '__main__':
