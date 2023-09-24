@@ -1,34 +1,3 @@
-def show_movie():
-    chosen_movie = input("Enter movie: ")
-    file = read_data()
-    flag = False
-    movie_dictionary_keys = []
-    movie_dictionary_values = []
-
-    for movie_dictionary in file:
-        if movie_dictionary['name'].lower() == chosen_movie.lower():
-            for key in movie_dictionary:
-                movie_dictionary_keys.append(key.capitalize())
-
-            for value in movie_dictionary.values():
-                if type(value) == list:
-                    new_value = ""
-                    for i in range(0, len(value)):
-                        new_value += str(value[i]) + " / "
-                    movie_dictionary_values.append(new_value)
-                else:
-                    movie_dictionary_values.append(value)
-
-            for i in range(0, len(movie_dictionary_keys)):
-                print(movie_dictionary_keys[i], ":", movie_dictionary_values[i])
-
-            flag = True
-
-    if not flag:
-        print("Try again")
-        show_movie()
-
-
 def add_rating():
     movie_request = input("Enter movie: ")
     dictionary = read_data()
@@ -50,7 +19,6 @@ def add_rating():
     if found == False:
         print("Invalid rating, try again")
         add_rating()
-
 
 def edit_row(id, edit_key, new_data):
     movie_dictionaries = read_data()
@@ -75,7 +43,6 @@ def edit_row(id, edit_key, new_data):
         print(row)
         file.write(row + '\n')
     file.close()
-
 
 def keuzemenu():
     print("Welkom bij de Internet Movie Database! Kies uit: 1, 2, 3, 4")
@@ -116,19 +83,19 @@ def read_data(genre = 0):
                 movie_dictionaries.append(movie_dictionary)
     return movie_dictionaries
 
-
 def main():
     program_runs = True
 
     keuzemenu()
 
     while program_runs:
-        i = input()
+        i = int(input())
 
-        if i == "1":
-            show_movie()
+        if i == 1:
+            read_data()
+            print(read_data())
 
-        elif i == "2":
+        if i == 2:
             add_rating()
 
 
