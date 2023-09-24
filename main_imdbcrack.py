@@ -57,9 +57,7 @@ def read_data(genre = 0):
                 movie_dictionaries.append(movie_dictionary)
             elif genre == 0:
                 movie_dictionaries.append(movie_dictionary)
-
     return movie_dictionaries
-
 
 def main():
     program_runs = True
