@@ -1,19 +1,39 @@
+def new_rating():
+    user_movie = input("Enter movie: ")
+    dictionary = read_data()
+
+    for movie in dictionary:
+        if movie['name'] == user_movie.capitalize():
+            user_rating = float(input("Give your rating: "))
+            info = movie['rating']
+            average_rating = float(info[0])
+            count = int(info[1])
+            count += 1
+
+            rating = (average_rating + user_rating)/count
+
+            return f'Thanks for rating the movie! The average rating right now is {rating}'
+
+        else:
+            return "Invalid rating, try again"
+
+
 def keuzemenu():
     print("Welkom bij de Internet Movie Database! Kies uit: 1, 2, 3, 4, 5, 6")
     print("1. Film opvragen")
     print("2. Film raten")
-    print("3. Beschrijving opvragen")
-    print("4. Film toevoegen | Admin")
-    print("5. Serie toevoegen | Admin")
-    print("6. Film/serie verwijderen | Admin")
-    print("7. Stop het programma")
+    print("3. Film toevoegen | Admin")
+    print("4. Serie toevoegen | Admin")
+    print("5. Film/serie verwijderen | Admin")
+    print("6. Stop het programma")
 
 #   read_data
 #   key, genre: vul genre in om te filteren, laat leeg om niet te filteren.
 #   returns: een list van alle dictionaries van films die door de filter zijn gekomen.
 
+
 def read_data(genre = 0):
-    file =  open('IMDB_datafiles/IMDBmovies.txt')
+    file = open('IMDB_datafiles/IMDBmovies.txt')
     data = file.read()
     file.close()
 
@@ -45,7 +65,15 @@ def main():
     keuzemenu()
 
     while program_runs:
-        i = input()
+        i = int(input())
+
+        if i == 1:
+            read_data()
+            print(read_data())
+
+        if i == 2:
+            rating = new_rating()
+            print(rating)
 
 
 if __name__ == '__main__':
