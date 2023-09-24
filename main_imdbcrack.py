@@ -45,13 +45,11 @@ def edit_row(id, edit_key, new_data):
     file.close()
 
 def keuzemenu():
-    print("Welkom bij de Internet Movie Database! Kies uit: 1, 2, 3, 4, 5, 6")
+    print("Welkom bij de Internet Movie Database! Kies uit: 1, 2, 3, 4")
     print("1. Film opvragen")
     print("2. Film raten")
-    print("3. Film toevoegen | Admin")
-    print("4. Serie toevoegen | Admin")
-    print("5. Film/serie verwijderen | Admin")
-    print("6. Stop het programma")
+    print("3. Admin login")
+    print("4. Stop het programma")
 
 #   read_data
 #   key, genre: vul genre in om te filteren, laat leeg om niet te filteren.

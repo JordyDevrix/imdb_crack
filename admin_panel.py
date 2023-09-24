@@ -1,8 +1,8 @@
-login = False
+from admin_functions import add_movie
 
 
-def admin_login(entered_username):
-    global login
+def admin_login(login):
+    entered_username = input("Enter username: ")
     file = open("IMDB_datafiles/admin_passwords.txt", "r")
     username_lines = file.readlines()
     for line in range(len(username_lines)):
@@ -12,16 +12,28 @@ def admin_login(entered_username):
             password = username_lines[line].split("::")[1].replace("\n", "")
             if password == enter_password:
                 login = True
-                return "Logging in..."
+                print("Logging in...")
+                return login
             else:
                 login = False
-                return "Password invalid, please try again"
+                print("Password invalid, please try again")
+                return login
         elif line + 1 == len(username_lines):
-            return "Username not found"
+            login = False
+            print("Username not found")
+            return login
 
 
-enter_username = input("Enter username: ")
-print(admin_login(enter_username.replace(" ", "").lower()))
+def admin_menu():
+    print("[1] add a movie.\n[2] option two.\n[3] option three.")
+    option = int(input(""))
 
-if login:
-    print("login succesfull")
+    if option == 1:
+        add_movie()
+    elif option == 2:
+        print("Not finished yet")
+    elif option == 3:
+        print("Not finished yet")
+    else:
+        raise KeyError("Key invalid, please restart to continue")
+
