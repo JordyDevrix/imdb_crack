@@ -130,11 +130,9 @@ def main():
         i = int(input())
         #
         if i == 1:
-            read_data()
-            print(read_data())
+            show_movie()
         elif i == 2:
-            rating = add_rating()
-            print(rating)
+            add_rating()
         elif i == 3:
             adminlogged = False
             adminmenu = admin_login(adminlogged)
