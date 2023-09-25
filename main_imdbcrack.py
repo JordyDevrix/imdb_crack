@@ -145,7 +145,7 @@ def main():
             adminlogged = False
             adminmenu = admin_login(adminlogged)
             if adminmenu:
-                print("logging succesful")
+                print("logging succesful\n")
                 admin_menu()
         elif i == 4:
             print("Ending program, Have a nice day!")

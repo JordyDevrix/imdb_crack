@@ -25,15 +25,22 @@ def admin_login(login):
 
 
 def admin_menu():
-    print("[1] add a movie.\n[2] delete a movie.\n[3] option three.")
+    print("[1] add a movie.\n[2] delete a movie.\n[3] return to main menu.")
     option = int(input(""))
 
     if option == 1:
         add_movie()
+        admin_menu()
     elif option == 2:
         delete_movie()
+        admin_menu()
     elif option == 3:
-        print("Not finished yet")
+        print("returning...\n")
+        print("1. Film opvragen")
+        print("2. Film raten")
+        print("3. Admin login")
+        print("4. Stop het programma")
+        return 0
     else:
         raise KeyError("Key invalid, please restart to continue")
 
