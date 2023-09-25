@@ -93,7 +93,7 @@ def keuzemenu():
 #   returns: een list van alle dictionaries van films die door de filter zijn gekomen.
 
 
-def read_data(genre=0):
+def read_data(genre='0'):
     file = open('IMDB_datafiles/IMDBmovies.txt')
     data = file.read()
     file.close()
@@ -116,7 +116,7 @@ def read_data(genre=0):
                 i += 1
             if genre in movie_dictionary['genre']:
                 movie_dictionaries.append(movie_dictionary)
-            elif genre == 0:
+            elif genre == '0':
                 movie_dictionaries.append(movie_dictionary)
     return movie_dictionaries
 
