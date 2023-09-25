@@ -33,11 +33,15 @@ def show_movie():
 
 
 def add_rating():
-    movie_request = input("Enter movie: ")
+    movie_request = input("(Q to cancel) Enter movie: ")
     dictionary = read_data()
     found = False
     for movie in dictionary:
-        if movie['name'].lower() == movie_request.lower():
+        if movie_request == "q" or movie_request == "Q":
+            print("Cancelling add rating. No changes have been made\n")
+            keuzemenu()
+            return 0
+        elif movie['name'].lower() == movie_request.lower():
             new_rating = float(input("Give your rating: "))
             rating_data = movie['rating']
             full_rating = float(rating_data[0])
@@ -55,7 +59,7 @@ def add_rating():
         add_rating()
 
 
-def edit_row(id, edit_key, new_data):
+def edit_row(id_m, edit_key, new_data):
     movie_dictionaries = read_data()
     file = open('IMDB_datafiles/IMDBmovies.txt', 'w')
     first = True
@@ -70,7 +74,7 @@ def edit_row(id, edit_key, new_data):
             row = '::'.join(keys)
             file.write(row + '\n')
             first = False
-        if movie['id'] == id:
+        if movie['id'] == id_m:
             movie[edit_key] = new_data
         values = []
         for value in movie.values():
@@ -90,10 +94,10 @@ def edit_row(id, edit_key, new_data):
 
 def keuzemenu():
     print("Welkom bij de Internet Movie Database! Kies uit: 1, 2, 3, 4")
-    print("1. Film opvragen")
-    print("2. Film raten")
-    print("3. Admin login")
-    print("4. Stop het programma")
+    print("[1] Film opvragen")
+    print("[2] Film raten")
+    print("[3] Admin login")
+    print("[4] Stop het programma")
 
 
 #   read_data

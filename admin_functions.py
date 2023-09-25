@@ -7,19 +7,32 @@ def add_movie():
     distri = input("6/9 distributors: ")
     genre = input("7/9 genre: ")
     sub_genre = input("8/9 sub-genre: ")
-    content_type = input("9/9 type (film or movie): ")
+    content_type = input("9/9 type (movie or series): ")
     rating_yn = input("Does the movie alread have a rating?: ").lower()
 
     file = open("IMDB_datafiles/IMDBmovies.txt", "r")
     data = file.readlines()
     movie_id = int(data[len(data)-1].split("::")[10]) + 1
-    #print(int(data[len(data)-1].split("::")[10]) + 1)
+    #   print(int(data[len(data)-1].split("::")[10]) + 1)
 
-    file = open("IMDB_datafiles/IMDBmovies.txt", "a")
+    def rating(character):
+        if character.isnumeric():
+            return rating
+        elif character == "Q" or character == "q":
+            print("cancelling rating")
+            return 0
+        else:
+            rate_again = input("Please enter a valid character")
+            rating(rate_again)
 
     if rating_yn == "y":
         rating_avg = input("Please Enter the avarage rating: ")
+        rating(rating_avg)
+
         rating_freq = input("Please Enter the total number of ratings: ")
+        rating(rating_freq)
+
+        rating_avg = int(rating_avg) * int(rating_freq)
 
         data = (f"\n"
                 f"{title}::"
@@ -53,8 +66,10 @@ def add_movie():
     else:
         raise KeyError("Invalid key, NO DOCUMENT CHANGES HAVE BEEN MADE")
 
+    file = open("IMDB_datafiles/IMDBmovies.txt", "a")
     file.writelines(data)
     file.close()
+    print("Added movie to database\n")
     # print(f"{title} {rel_date} {prod} {sales} {nomination} {distri} {genre} {content_type}")
 
 

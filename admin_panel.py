@@ -20,7 +20,7 @@ def admin_login(login):
                 return login
         elif line + 1 == len(username_lines):
             login = False
-            print("Username not found")
+            print("Username not found, try again")
             return login
 
 
@@ -36,10 +36,10 @@ def admin_menu():
         admin_menu()
     elif option == 3:
         print("returning...\n")
-        print("1. Film opvragen")
-        print("2. Film raten")
-        print("3. Admin login")
-        print("4. Stop het programma")
+        print("[1] Film opvragen")
+        print("[2] Film raten")
+        print("[3] Admin login")
+        print("[4] Stop het programma")
         return 0
     else:
         raise KeyError("Key invalid, please restart to continue")
