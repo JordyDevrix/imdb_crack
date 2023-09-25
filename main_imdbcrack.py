@@ -59,7 +59,10 @@ def edit_row(id, edit_key, new_data):
     movie_dictionaries = read_data()
     file = open('IMDB_datafiles/IMDBmovies.txt', 'w')
     first = True
+    counter = 0
+
     for movie in movie_dictionaries:
+        counter = counter + 1
         if first:
             keys = []
             for key in movie.keys():
@@ -75,8 +78,13 @@ def edit_row(id, edit_key, new_data):
                 value = ';;'.join(str(value_item) for value_item in value)
             values.append(value)
         row = '::'.join(str(value) for value in values)
-        print(row)
-        file.write(row + '\n')
+        #   print(row)
+        #   print(len(movie_dictionaries))
+        #   print(counter)
+        if counter == len(movie_dictionaries):
+            file.write(row)
+        else:
+            file.write(row + '\n')
     file.close()
 
 

@@ -13,7 +13,7 @@ def add_movie():
     file = open("IMDB_datafiles/IMDBmovies.txt", "r")
     data = file.readlines()
     movie_id = int(data[len(data)-1].split("::")[10]) + 1
-    print(int(data[len(data)-1].split("::")[10]) + 1)
+    #print(int(data[len(data)-1].split("::")[10]) + 1)
 
     file = open("IMDB_datafiles/IMDBmovies.txt", "a")
 
@@ -47,7 +47,7 @@ def add_movie():
                 f"{genre}::"
                 f"{sub_genre};;"
                 f"{content_type}::"
-                f"null_rating::"
+                f"0;;0::"
                 f"null_rewards::"
                 f"{movie_id}")
     else:
