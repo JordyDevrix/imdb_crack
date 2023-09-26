@@ -5,10 +5,10 @@ def show_movie():
     chosen_movie = input("Enter movie: ")
     file = read_data()
     flag = False
-    movie_dictionary_keys = []
-    movie_dictionary_values = []
 
     for movie_dictionary in file:
+        movie_dictionary_keys = []
+        movie_dictionary_values = []
         if movie_dictionary['name'].lower() == chosen_movie.lower():
             for key in movie_dictionary:
                 movie_dictionary_keys.append(key.capitalize())
