@@ -15,9 +15,7 @@ def show_movie():
 
             for value in movie_dictionary.values():
                 if type(value) == list:
-                    new_value = ""
-                    for i in range(0, len(value)):
-                        new_value += str(value[i]) + " / "
+                    new_value = " / ".join(value)
                     movie_dictionary_values.append(new_value)
                 else:
                     movie_dictionary_values.append(value)
