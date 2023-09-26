@@ -5,19 +5,17 @@ def show_movie():
     chosen_movie = input("Enter movie: ")
     file = read_data()
     flag = False
-    movie_dictionary_keys = []
-    movie_dictionary_values = []
 
     for movie_dictionary in file:
+        movie_dictionary_keys = []
+        movie_dictionary_values = []
         if movie_dictionary['name'].lower() == chosen_movie.lower():
             for key in movie_dictionary:
                 movie_dictionary_keys.append(key.capitalize())
 
             for value in movie_dictionary.values():
                 if type(value) == list:
-                    new_value = ""
-                    for i in range(0, len(value)):
-                        new_value += str(value[i]) + " / "
+                    new_value = " / ".join(value)
                     movie_dictionary_values.append(new_value)
                 else:
                     movie_dictionary_values.append(value)
