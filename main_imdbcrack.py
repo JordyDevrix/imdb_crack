@@ -15,15 +15,29 @@ def show_movie():
 
             for value in movie_dictionary.values():
                 if type(value) == list:
-                    new_value = " / ".join(value)
-                    movie_dictionary_values.append(new_value)
+                    if value[1].isnumeric():
+                        #   see if value is numeric, if so: value is a rating else: value is a type (movie or series)
+                        if int(value[1]) == 0:
+                            #   see if rating is 0, if so it will append there is no rating yet
+                            rating = "No rating yet"
+                            movie_dictionary_values.append(rating)
+                        else:
+                            #   rating has been found therefore it will append the rating to the dictionary
+                            rating = float(value[0]) / int(value[1])
+                            movie_dictionary_values.append(rating)
+                    else:
+                        new_value = " / ".join(value)
+                        movie_dictionary_values.append(new_value)
                 else:
                     movie_dictionary_values.append(value)
 
             for i in range(0, len(movie_dictionary_keys)):
-                print(movie_dictionary_keys[i], ":", movie_dictionary_values[i])
-
+                if len(movie_dictionary_keys) == i + 1:
+                    print(f"{movie_dictionary_keys[i]} : {movie_dictionary_values[i]} \n")
+                else:
+                    print(f"{movie_dictionary_keys[i]} : {movie_dictionary_values[i]}")
             flag = True
+    choice_menu()
 
     if not flag:
         print("Try again")
@@ -37,7 +51,7 @@ def add_rating():
     for movie in dictionary:
         if movie_request == "q" or movie_request == "Q":
             print("Cancelling add rating. No changes have been made\n")
-            keuzemenu()
+            choice_menu()
             return 0
         elif movie['name'].lower() == movie_request.lower():
             new_rating = float(input("Give your rating: "))
@@ -90,12 +104,15 @@ def edit_row(id_m, edit_key, new_data):
     file.close()
 
 
-def keuzemenu():
-    print("Welkom bij de Internet Movie Database! Kies uit: 1, 2, 3, 4")
+def choice_menu():
     print("[1] Film opvragen")
     print("[2] Film raten")
     print("[3] Admin login")
     print("[4] Stop het programma")
+
+
+def on_start():
+    print("Welkom bij de Internet Movie Database! Kies uit: 1, 2, 3, 4")
 
 
 #   read_data
@@ -134,7 +151,8 @@ def read_data(genre='0'):
 def main():
     program_runs = True
 
-    keuzemenu()
+    on_start()
+    choice_menu()
 
     while program_runs:
         i = int(input())

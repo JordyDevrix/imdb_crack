@@ -103,7 +103,7 @@ def delete_movie():
 
                         if movie_to_delete == movies_lib[movies].split("::")[0] and movie_id == movies_lib[movies].split("::")[10]:
                             movie_deleted = True
-                            #print(movie_deleted)
+                            #   print(movie_deleted)
                             print(f"will not write {movie_name}")
                         else:
                             file = open("IMDB_datafiles/IMDBmovies.txt", "w")
@@ -114,15 +114,22 @@ def delete_movie():
                             else:
                                 movie_writing_list.append(movies_lib[movies])
 
-                            #print(movie_writing_list)
+                            #   print(movie_writing_list)
                             file.writelines(movie_writing_list)
+                            file.close()
                     return 0
                 elif delete_answer == "n":
                     print("OK we'll search for a different one")
 
                 elif delete_answer == "q":
                     print("cancelling deletion, no changes have been made")
+                    file.close()
                     return 0
 
                 else:
+                    file.close()
                     raise KeyError("Key invalid, please restart to continue")
+            #   print(f"{movie} en {len(movies_lib) - 1}")
+            elif movie_name != movie_to_delete and movie == len(movies_lib) - 1:
+                print("Movie not Found, try again?")
+                return 0

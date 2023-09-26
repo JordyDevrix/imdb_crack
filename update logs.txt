@@ -1,0 +1,27 @@
+#UPDATE 25/9/2023 - 22:11
+patches:
+    admin function panel keuze uit film / movie (synoniem)	1
+
+    admin function add_movie returned geen succes of fail	1
+
+    admin function add_movie staat string toe bij rating	1
+
+    admin function add_movie rating berekening is incorrect	1
+
+    invalid rating functie geeft geen optie om te cancellen	1
+
+
+#UPDATE 26/9/2023 - 14-38
+patches:
+    rating geeft opgetelde rating en rating frequentie mee
+
+minor:
+    menu geeft word nu steeds visible gemaakt na uitvoeren van een functie
+
+    show_movie() functie heeft nu \n statement erbij die zorgt voor een whitespace
+
+    code bevat nu comments op geëditte plekken
+
+    on_start() functie toegevoegd die het welkomsbericht eenmalig laat zien na opstarten
+
+    delete_movie() functie geeft nu aan of een film gevonden is of niet
